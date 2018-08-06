@@ -1,5 +1,7 @@
 # RaveSaber - AVR APA102C Color Test
 
+[![Build Status](https://travis-ci.org/Rave-Saber/AVR-APA102-Color-Tester.svg?branch=master)](https://travis-ci.org/Rave-Saber/AVR-APA102-Color-Tester)
+
 A simple AVR firmware & cli application to test colors of an APA102 strip via
 a serial connection.
 
