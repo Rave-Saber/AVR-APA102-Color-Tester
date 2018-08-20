@@ -1,6 +1,6 @@
 MCU = atmega168
-F_CPU = 1000000UL
-BAUD = 9600UL
+F_CPU = 16000000UL
+BAUD = 19200UL
 
 LIBDIR = ./lib/AVR-APA102-library/src
 

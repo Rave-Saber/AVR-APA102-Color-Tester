@@ -10,7 +10,7 @@ import Control.Lens ((^.))
 import Data.Monoid ((<>))
 import Numeric (showHex)
 import System.Environment (getArgs)
-import System.Hardware.Serialport (SerialPort, openSerial, closeSerial, defaultSerialSettings, send)
+import System.Hardware.Serialport (SerialPort, openSerial, closeSerial, defaultSerialSettings, send, SerialPortSettings(commSpeed), CommSpeed(..))
 
 import qualified Data.ByteString.Char8 as BS
 import qualified Brick.Widgets.Center as C
@@ -24,7 +24,7 @@ main = do
             return sPort
         _ ->
             error "Expected Usage: ./control.hs /dev/ttyUSB0\n"
-    serialPort <- openSerial portPath defaultSerialSettings
+    serialPort <- openSerial portPath defaultSerialSettings { commSpeed = CS19200 }
     let state = initial serialPort
     void $ defaultMain app state
     closeSerial serialPort
