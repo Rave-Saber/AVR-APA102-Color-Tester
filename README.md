@@ -28,6 +28,17 @@ numbers, the Enter key to switch between the Red, Green, & Blue inputs, and the
 `q` key to quit.
 
 
+## TODO
+
+* Fix bug in TUI app where scrolling with the mouse wheel causes an incomplete
+  serial data transmission. Quick fix is to reset the AVR device.
+* GTK app with features like a color wheel, & adding colors to a favorites
+  list.
+* Pattern testing
+    * app sends pattern type, color sequence, & timing info via serial
+    * firmware decodes serial data then allocates and plays the given pattern
+
+
 ## License
 
 GPL-3.0
