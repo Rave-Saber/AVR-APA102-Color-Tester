@@ -5,10 +5,11 @@
 A simple AVR firmware & cli application to test colors of an APA102 strip via
 a serial connection.
 
-This was tested using an ATmega168a AVR microcontroller with a Sparkfun
-Lumentai 8-LED strip. The data pin is hooked up to PB3(MOSI) & the clock pin is
-hooked up to PB5(SCK). The serial connection uses a USB-FTDI cable. The chip is
-programmed with a USBtinyISP.
+This was tested using an ATmega168a AVR microcontroller running at 16Mhz with
+both a Sparkfun Lumentai 8-LED strip & Adafruit DotStar 144/m strip. The data
+pin is hooked up to PB3(MOSI) & the clock pin is hooked up to PB5(SCK). The
+serial connection uses a USB-FTDI cable. The chip is programmed with a
+USBtinyISP.
 
 To flash your chip, simply run `make flash`.
 
