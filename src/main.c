@@ -2,7 +2,7 @@
 #include <util/setbaud.h>
 #include <stdbool.h>
 #include <apa102.h>
-#include <apa102_effects.h>
+#include <apa102_simple_effects.h>
 
 
 static inline void initUSART(void);
@@ -37,7 +37,11 @@ int main(void) {
             }
         }
         printString("\r\n");
-        apa102_set_all(rgb(color));
+        RGBColor_t rgb_color = rgb(color);
+#ifdef CURRENT_PER_LED
+        scale_color(&rgb_color);
+#endif
+        apa102_set_all_leds(rgb_color);
     }
     return 0;
 }
