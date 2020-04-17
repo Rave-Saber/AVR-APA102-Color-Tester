@@ -1,7 +1,18 @@
 ---
 # Travis builds are run in Arch Linux docker containers so we have access to
 # gcc8: https://github.com/mikkeloscar/arch-travis
-sudo: required
+os: linux
+dist: xenial
+language: generic
+
+cache:
+    directories:
+        - $HOME/.stack
+
+addons:
+    apt:
+        packages:
+            - libgmp-dev
 
 services:
     - docker
@@ -12,10 +23,18 @@ archlinux:
         - avr-gcc
         - avr-libc
         - make
-        - stack
     script:
         - make all
-        - cd ui; stack build -j2
+
+before_install:
+    - mkdir -p ~/.local/bin
+    - export PATH=$HOME/.local/bin:$PATH
+    - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+
+install:
+    - cd ui; stack --no-terminal --install-ghc test --only-dependencies
+
 
 script:
+    - cd ui; stack --no-terminal build -j2; cd ..
     - "curl -s https://raw.githubusercontent.com/mikkeloscar/arch-travis/master/arch-travis.sh | bash"
