@@ -7,7 +7,6 @@ import Brick.Widgets.List
 import Control.Monad (void)
 import Control.Monad.IO.Class (liftIO)
 import Control.Lens ((^.))
-import Data.Monoid ((<>))
 import Numeric (showHex)
 import System.Environment (getArgs)
 import System.Hardware.Serialport (SerialPort, openSerial, closeSerial, defaultSerialSettings, send, SerialPortSettings(commSpeed), CommSpeed(..))
